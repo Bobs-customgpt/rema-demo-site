@@ -1,0 +1,5 @@
+/* Demo-only overrides. Keep this file small: the page itself is ReMA's own markup and theme CSS. */
+
+/* Rotating sponsor ad slots (Multiview/Adzerk) are served live on ReMA's site only; collapse the empty rows. */
+.gBtopBannerAd,
+.kb-row-layout-id74_54ee0a-a9 { display: none !important; }
