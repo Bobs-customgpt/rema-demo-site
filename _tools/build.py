@@ -102,6 +102,35 @@ KEEP_INLINE = [
 ]
 
 
+SEARCH_ICON = ('<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" '
+               'stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/>'
+               '<path d="m15.5 15.5 5 5"/></svg>')
+
+# Desktop header: replaces ReMA's search icon + modal with an always-visible AI search pill.
+SEARCH_PILL = (
+    '<div class="cgpt-search" id="cgptSearch">'
+    '<form class="cgpt-search__form" role="search" action="#" autocomplete="off">'
+    '<input class="cgpt-search__input" type="text" name="q" placeholder="Search ReMA" '
+    'aria-label="Search recycledmaterials.org with AI">'
+    '<span class="cgpt-search__ai" aria-hidden="true">AI</span>'
+    '<button class="cgpt-search__submit" type="submit" aria-label="Search">' + SEARCH_ICON + '</button>'
+    '</form></div> '
+)
+
+# Results card, placed at body level and positioned under whichever search box was used.
+SGE_PANEL = (
+    '<section class="sge-panel" id="sgePanel" role="dialog" aria-labelledby="sgeTitle" hidden>'
+    '<header class="sge-panel__head"><div class="sge-panel__titles">'
+    '<span class="sge-panel__label" id="sgeTitle">AI Search</span>'
+    '<span class="sge-panel__query" id="sgeQuery"></span></div>'
+    '<button class="sge-panel__close" id="sgeClose" type="button" aria-label="Close search results">&times;</button>'
+    '</header><div class="sge-panel__body">'
+    '<div class="sge-panel__loading" id="sgeLoading"><span class="sge-panel__spinner"></span> '
+    'Searching recycledmaterials.org&hellip;</div>'
+    '<div id="customgpt_chat"></div></div></section>\n'
+)
+
+
 def keep_script(tag, body):
     src = re.search(r"\bsrc=['\"]([^'\"]+)", tag)
     if src:
@@ -191,13 +220,19 @@ def main():
                   r"<form method='post'\1id='gform_2' action='#' onsubmit='event.preventDefault();return false;'",
                   html)
 
+    # 5b. header search icon (opens a full-screen Kadence modal) -> inline AI search pill
+    start = html.find('<div class="kb-search kb-search247_a9720d-35')
+    end = html.find('<div class="rema-login-container">', start)
+    assert start > 0 and end > start, "desktop search block not found"
+    html = html[:start] + SEARCH_PILL + html[end:]
+
     html = html.replace('<video class="kb-blocks-bg-video"',
                         '<video poster="assets/wp-content/uploads/gradient-bgrd-video-poster.jpg" class="kb-blocks-bg-video"', 1)
 
     # 6. demo head tags + agent
     html = html.replace("<head>", '<head>\n<meta name="robots" content="noindex, nofollow">', 1)
     html = re.sub(r'<meta name=["\']robots["\'] content=["\']index[^>]*>', "", html)
-    agent = ('\n<link rel="stylesheet" href="demo/demo.css">\n'
+    agent = ('\n<link rel="stylesheet" href="demo/demo.css">\n' + SGE_PANEL +
              '<script src="config.js"></script>\n<script src="demo/demo.js"></script>\n')
     html = html.replace("</body>", agent + "</body>", 1)
 

@@ -5,7 +5,8 @@ A static replica of the [recycledmaterials.org homepage](https://www.recycledmat
 Not affiliated with or endorsed by the Recycled Materials Association. Internal sales demo only; do not present it as ReMA's real site. Content was captured from the public homepage on 2026-09-29. The page is `noindex, nofollow` and `robots.txt` blocks crawlers.
 
 ## What changed vs. the live homepage
-- **Agent:** CustomGPT project 101035 ("REMA Demo") via `chat.js`, set in `config.js`. Override for a test with `index.html?p_id=...&p_key=...`.
+- **Chat agent:** CustomGPT project 101035 ("REMA Demo") via `chat.js`, set in `config.js`. Override for a test with `index.html?p_id=...&p_key=...`.
+- **AI search:** the top-bar search icon (which opened a full-screen Kadence modal) is replaced by an always-visible search pill wired to CustomGPT project 101060 ("REMA Demo (search bar)") via `sge.js`. Results open in a card anchored under the pill (Escape, the close button or an outside click closes it; clicking back into the box reopens the last result). On phones, ReMA's own "Type to search" field in the menu drives the same card, which drops under the header. Each search re-injects `sge.js` with the query as its `prompt` attribute, and the query is mirrored to `?q=` so a result can be deep-linked: `?q=lithium-ion+battery+safety`.
 - **Removed:** analytics and tag managers (GA4, GTM, Adobe Launch, LinkedIn Insight), Multiview/Adzerk ad slots (the empty rows are collapsed in `demo/demo.css`), Search & Filter, Gravity Forms scripts, emoji and speculation scripts.
 - **Newsletter form:** the markup is kept but submitting it does nothing; no data leaves the page.
 - **Font:** ReMA uses Graphie from Adobe Fonts, which is licensed per domain, so it is swapped for Outfit (Google Fonts), a close lookalike.

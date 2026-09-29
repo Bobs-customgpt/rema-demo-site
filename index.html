@@ -833,20 +833,7 @@ background: #D31094;
 <li class="wp-block-kadence-navigation-link kb-nav-link-249_8edd5d-b3 menu-item"><div class="kb-link-wrap"><a class="kb-nav-link-content" href="https://remamerchstore.com/" target="_blank">ReMA Pro Shop</a></div></li>
 </ul></div></nav></div>
 
-<div class="kb-search kb-search247_a9720d-35 kb-search-modal-container wp-block-kadence-search">
-
-<div class="wp-block-kadence-advancedbtn kb-buttons-wrap kb-btns247_c2c6e3-4d"><button class="kb-button kt-button button kb-btn247_070e39-33 kt-btn-size-standard kt-btn-width-type-auto kb-btn-global-fill kt-btn-has-text-true kt-btn-has-svg-true wp-block-kadence-singlebtn" type="submit"><span class="kt-btn-inner-text">Search</span><span class="kb-svg-icon-wrap kb-svg-icon-kb-custom-250 kt-btn-icon-side-right"><svg viewBox="0 0 23 23"  fill="currentColor" xmlns="http://www.w3.org/2000/svg"  aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.8257 15.1263L13.0095 14.3034C9.84553 16.7759 5.23686 16.5495 2.33658 13.6457C-0.791247 10.5156 -0.773188 5.43758 2.3727 2.3254C5.51858 -0.786792 10.6221 -0.768824 13.7499 2.36133C16.6538 5.26508 16.8524 9.85071 14.3495 12.9809L15.1946 13.829C15.9098 13.6206 16.708 13.7931 17.275 14.3501L22.393 19.4712C23.2056 20.287 23.2056 21.5951 22.3857 22.4001C21.5658 23.2087 20.2512 23.2087 19.4421 22.3929L14.3133 17.2826C13.7354 16.6932 13.5729 15.8595 13.8257 15.1335V15.1263ZM12.511 3.57961C10.0622 1.13586 6.06397 1.1179 3.5971 3.55446C1.14107 5.99102 1.12301 9.9693 3.57182 12.4238C6.02063 14.8784 10.0189 14.8856 12.4858 12.449C14.9526 10.0124 14.9599 6.03415 12.511 3.57961Z"/></svg></span></button></div>
-
-<div class="kb-search-modal">
-            <button class="kb-search-close-btn" aria-label="Close search" aria-expanded="false" data-set-focus=".search-toggle-open">
-                <svg viewBox="0 0 24 24"  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"  role="img"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </button>
-            <div class="kb-search-modal-content">
-                <form class="kb-search-form" role="search" method="get" action="https://www.recycledmaterials.org/"><div class="kb-search-input-wrapper"><input name="s" type="text" class="kb-search-input" placeholder="Search" aria-label="Search"><button type="submit" class="kb-search-icon-submit" aria-label="Search"><span class="kb-search-icon"><svg viewBox="0 0 24 24"  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"  role="img"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></button></div></form>
-            </div>
-        </div></div>
-
-<div class="rema-login-container"><a href="https://portal.recycledmaterials.org/eweb/dynamicpage.aspx?WebCode=LoginRequired&#038;expires=yes&#038;Site=ISRI&#038;URL_Success=https%3A%2F%2Fwww.recycledmaterials.org%2Fwp-json%2Frema%2Fv1%2Flogin%3Fusertoken%3D%7Btoken%7D%26ReturnUrl%3Dhttps%3A%2F%2Fwww.recycledmaterials.org%2F" class="button">Login</a></div>
+<div class="cgpt-search" id="cgptSearch"><form class="cgpt-search__form" role="search" action="#" autocomplete="off"><input class="cgpt-search__input" type="text" name="q" placeholder="Search ReMA" aria-label="Search recycledmaterials.org with AI"><span class="cgpt-search__ai" aria-hidden="true">AI</span><button class="cgpt-search__submit" type="submit" aria-label="Search"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></button></form></div> <div class="rema-login-container"><a href="https://portal.recycledmaterials.org/eweb/dynamicpage.aspx?WebCode=LoginRequired&#038;expires=yes&#038;Site=ISRI&#038;URL_Success=https%3A%2F%2Fwww.recycledmaterials.org%2Fwp-json%2Frema%2Fv1%2Flogin%3Fusertoken%3D%7Btoken%7D%26ReturnUrl%3Dhttps%3A%2F%2Fwww.recycledmaterials.org%2F" class="button">Login</a></div>
 
 
 </div>
@@ -2540,6 +2527,7 @@ class Modal {
 		
 		
 <link rel="stylesheet" href="demo/demo.css">
+<section class="sge-panel" id="sgePanel" role="dialog" aria-labelledby="sgeTitle" hidden><header class="sge-panel__head"><div class="sge-panel__titles"><span class="sge-panel__label" id="sgeTitle">AI Search</span><span class="sge-panel__query" id="sgeQuery"></span></div><button class="sge-panel__close" id="sgeClose" type="button" aria-label="Close search results">&times;</button></header><div class="sge-panel__body"><div class="sge-panel__loading" id="sgeLoading"><span class="sge-panel__spinner"></span> Searching recycledmaterials.org&hellip;</div><div id="customgpt_chat"></div></div></section>
 <script src="config.js"></script>
 <script src="demo/demo.js"></script>
 </body>
